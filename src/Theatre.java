@@ -1,9 +1,13 @@
-import java.util.ArrayList;
+import model.Actor;
+import model.Director;
+import model.GenderEnum;
+import model.Person;
+import show.Ballet;
+import show.Opera;
+import show.Show;
 
 public class Theatre {
     public static void main(String[] args) {
-        // Просьба: очень интересно, как бы выглядели директории, если бы это был реальный проект.
-        // Если не трудно, поделитесь пожалуйста :)
         Actor actor1 = new Actor("Петр", "Артистов", GenderEnum.MALE, 199);
         Actor actor2 = new Actor("Елена", "Петрова", GenderEnum.FEMALE, 120);
         Actor actor3 = new Actor("Джек", "Воробей", GenderEnum.MALE, 230);
@@ -24,19 +28,19 @@ public class Theatre {
         opera.addActor(actor1);
         opera.addActor(actor2);
 
-        System.out.print("Список актеров Opera: ");
+        System.out.print("Список актеров show.Opera: ");
         opera.printActors();
 
         Ballet ballet = new Ballet(director2, 220, "Смешной балет", musicAuthor, "Либретто для балета", choreographer);
         ballet.addActor(actor2);
         ballet.addActor(actor3);
 
-        System.out.print("Список актеров Ballet: ");
+        System.out.print("Список актеров show.Ballet: ");
         ballet.printActors();
 
         ballet.replaceActor(actor1, "Петрова");
 
-        System.out.print("Список актеров Ballet после замены: ");
+        System.out.print("Список актеров show.Ballet после замены: ");
         ballet.printActors();
 
         ballet.replaceActor(actor3, "Пожилой");

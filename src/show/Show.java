@@ -1,10 +1,15 @@
+package show;
+
+import model.Actor;
+import model.Director;
+
 import java.util.ArrayList;
 
 public class Show {
-    String title;
-    int duration;
-    Director director;
-    ArrayList<Actor> listOfActors = new ArrayList<>();
+    protected final String title;
+    protected final int duration;
+    protected final Director director;
+    protected final ArrayList<Actor> listOfActors = new ArrayList<>();
 
     public Show(Director director, int duration, String title) {
         this.director = director;
@@ -12,16 +17,32 @@ public class Show {
         this.title = title;
     }
 
-    void printDirector () {
+    public String getTitle() {
+        return title;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public ArrayList<Actor> getListOfActors() {
+        return listOfActors;
+    }
+
+    public void printDirector () {
         System.out.println(director);
     }
 
-    void printActors () {
+    public void printActors () {
         System.out.println(listOfActors);
     }
 
 
-    void addActor (Actor actor) {
+    public void addActor (Actor actor) {
         if (listOfActors.contains(actor)) {
             System.out.println("Актер уже учавствует в представлении");
         } else {
@@ -29,12 +50,12 @@ public class Show {
         }
     }
 
-    void replaceActor (Actor actor, String surnameForReplacing) {
+    public void replaceActor (Actor actor, String surnameForReplacing) {
         boolean hasActorReplaced = false;
 
         for (int index = 0; index < listOfActors.size(); index++) {
             Actor actorFromList = listOfActors.get(index);
-            if (actorFromList.surname.contains(surnameForReplacing)) {
+            if (actorFromList.getSurname().contains(surnameForReplacing)) {
                 listOfActors.set(index, actor);
                 hasActorReplaced = true;
                 break;
